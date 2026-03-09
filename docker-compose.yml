@@ -1,5 +1,9 @@
 services:
   backend:
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/dyeing_db
     build:
       context: .
       dockerfile: Dockerfile
@@ -7,14 +11,29 @@ services:
     ports:
       - "8000:8000"
 
+
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
-        VITE_API_BASE: http://localhost:8000
+  
     container_name: dyeing-frontend
     depends_on:
       - backend
     ports:
       - "3000:80"
+
+  db:
+    image: postgres:13-alpine
+    container_name: dyeing-db
+    environment:
+      POSTGRES_DB: dyeing_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
