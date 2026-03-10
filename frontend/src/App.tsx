@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 type KPI = { name: string; value: number; unit: string; trend: 'up' | 'down' | 'flat'; target: number };
 type Alert = { level: 'high'|'medium'|'low'; message: string; source: string; ts: string };
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_BASE || '/api';
 
 export function App() {
   const [kpis, setKpis] = useState<KPI[]>([]);
