@@ -4,6 +4,10 @@
 
 # Add tasks below when you want the agent to check something periodically.
 
+## 文档维护任务 (Documentation Maintenance Tasks)
+
+*   **持续升级和改进 OpenClaw 文档:** 定期审阅 `openclaw.md` 文件，确保其清晰地介绍 OpenClaw 的配置、功能和常见问题，并根据系统更新进行同步。
+
 ## 独立开发者心跳任务 (Independent Developer Heartbeat Tasks)
 
 *   **每天早上检查 GitHub Pull Request:** 检查是否有新的 `pull request` 需要关注或审阅（需要配置仓库信息）。
